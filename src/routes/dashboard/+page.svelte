@@ -75,7 +75,7 @@
   top: 55%; 
   left: 50%;
   transform: translate(-50%, -80%); 
-  padding: 2.6rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;

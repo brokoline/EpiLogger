@@ -40,11 +40,11 @@
   <h3>Velkommen</h3>
   <div class="form-group">
     <label for="username">Brugernavn:</label>
-    <input type="text" id="username" bind:value={username} />
+    <input bind:value={username} type="text" id="username"/>
   </div>
   <div class="form-group">
     <label for="password">Adgangskode:</label>
-    <input type="password" id="password" bind:value={password} />
+    <input bind:value={password} type="password" id="password"/>
   </div>
   <button on:click={login}>Log Ind</button>
   <p><a href="/register">Opret bruger</a></p>
