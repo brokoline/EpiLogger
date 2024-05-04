@@ -23,16 +23,31 @@
   };
 
   const uploadImage = async () => {
-    if (imageFile && description) {
-      // billede og tekstbeskrivelse ?
-      console.log('Uploading', { imageFile, description });
-      // noget upload logik her?
-    }
-  };
+  if (imageFile && description) {
+    const token = localStorage.getItem('token'); // eller hent fra cookies?
+    const formData = new FormData();
+    formData.append('image', imageFile);
+    formData.append('description', description);
 
-  const goBackToDiary = () => {
-    // tilbage til diary
-    window.location.href = '/diary';
+    const response = await fetch('/api/upload', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
+      body: formData
+    });
+
+    if (response.ok) {
+      console.log('Billede er logget i EpiLogger');
+    } else {
+      console.error('Fejl under upload');
+    }
+  }
+};
+
+  const goBackToDashboard = () => {
+    // tilbage til dashboard
+    window.location.href = '/dashboard';
     window.location.href = '/history';
   };
 </script>
@@ -48,8 +63,9 @@
     <input type="file" id="file-upload" on:change={handleFileUpload} />
     <textarea bind:value={description} placeholder="Tilføj en beskrivelse til dit billede" rows="4"></textarea>
     <button class="btn">Upload billede</button>
-    <p><a href="/dashboard">Gå til hovedmenu</a></p>
-    <p><a href="/history">Gå til din EpiHistorik</a></p>
+    <p> <a href="/dashboard" class="button-link">Gå til hovedmenu</a></p>
+    <p> <a href="/history" class="button-link">Hent Din EpiHistorik</a>
+    <p><a href="/logout" class="button-link button-logout">Log ud</a></p>
   </div>
 </div>
 
