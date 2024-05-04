@@ -8,6 +8,8 @@
 
 
 <script>
+  import { onMount } from 'svelte';
+
   let description = '';
   let imageFile;
 
@@ -38,6 +40,7 @@
 
 
 
+
 <center>
 <div id="epiExplorerHeader">EpiLogger</div>
 <div class="dashboard-container">
@@ -46,7 +49,7 @@
     <p>Upload billeder til din EpiLog, som kan ses i EpiHistorik</p>
     <input type="file" id="file-upload" on:change={handleFileChange} />
     <textarea bind:value={description} placeholder="Tilføj en beskrivelse til dit billede" rows="4"></textarea>
-    <button class="btn">Upload billede</button>
+    <button on:click={uploadImage}>Upload billede</button>
     <p> <a href="/dashboard" class="button-link">Gå til hovedmenu</a></p>
     <p> <a href="/history" class="button-link">Hent Din EpiHistorik</a>
   </div>
