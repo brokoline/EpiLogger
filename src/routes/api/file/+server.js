@@ -1,5 +1,9 @@
-import { put } from '@vercel/blob';
+//import { put } from '@vercel/blob';
 import { PrismaClient } from '@prisma/client';
+import { env } from '$env/dynamic/private';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken'
+
 
 export async function POST({ request, cookies }) {
 	const formData = await request.formData();
