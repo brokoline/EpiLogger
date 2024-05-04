@@ -60,7 +60,7 @@
   <h3>Din personlige EpiLog</h3>
   <div>
     <p>Upload billeder til din EpiLog, som kan ses i EpiHistorik</p>
-    <input type="file" id="file-upload" on:change={handleFileUpload} />
+    <input type="file" id="file-upload" on:change={handleFileChange} />
     <textarea bind:value={description} placeholder="Tilføj en beskrivelse til dit billede" rows="4"></textarea>
     <button class="btn">Upload billede</button>
     <p> <a href="/dashboard" class="button-link">Gå til hovedmenu</a></p>
