@@ -18,23 +18,28 @@
             return;
         }
 
-        fetch('api/user', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: user,
-                email: email,
-                pass: pass
-            })
-        }).then(response => {
+        try {
+            const response = await fetch('api/user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: user,
+                    email: email,
+                    pass: pass
+                })
+            });
+
             if (response.ok) {
-                navigate('/');
+                window.location.href = '/';
             } else {
                 alert('Der opstod en fejl ved oprettelse af brugeren.');
             }
-        });
+        } catch (error) {
+            console.error('Fejl ved oprettelse af bruger:', error);
+            alert('Der opstod en fejl ved oprettelse af brugeren.');
+        }
     };
 </script>
 

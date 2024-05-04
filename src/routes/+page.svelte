@@ -39,7 +39,7 @@
 <div class="login-container">
   <h3>Velkommen</h3>
   <div class="form-group">
-    <label for="username">Brugernavn:</label>
+    <label for="username">E-mail:</label>
     <input bind:value={username} type="text" id="username"/>
   </div>
   <div class="form-group">
