@@ -8,49 +8,33 @@
 
 
 <script>
-  import { Button } from '@sveltestrap/sveltestrap';
-  import { onMount } from 'svelte';
-  
-
   let description = '';
   let imageFile;
-
-  onMount(async () => {
-  });
 
   const handleFileChange = (event) => {
     imageFile = event.target.files[0];
   };
 
   const uploadImage = async () => {
-  if (imageFile && description) {
-    const token = localStorage.getItem('token'); // eller hent fra cookies?
-    const formData = new FormData();
-    formData.append('image', imageFile);
-    formData.append('description', description);
+    if (imageFile && description) {
+      const formData = new FormData();
+      formData.append('image', imageFile);
+      formData.append('description', description);
 
-    const response = await fetch('/api/upload', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${token}`
-      },
-      body: formData
-    });
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData
+      });
 
-    if (response.ok) {
-      console.log('Billede er logget i EpiLogger');
-    } else {
-      console.error('Fejl under upload');
+      if (response.ok) {
+        console.log('Billede er logget i EpiLogger');
+      } else {
+        console.error('Fejl under upload');
+      }
     }
-  }
-};
-
-  const goBackToDashboard = () => {
-    // tilbage til dashboard
-    window.location.href = '/dashboard';
-    window.location.href = '/history';
   };
 </script>
+
 
 
 

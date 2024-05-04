@@ -15,8 +15,22 @@ datasource db {
 }
 
 model User {
+  id       String  @id @default(cuid())
+  email    String  @unique
+  phone    String?
+  name     String?
+  hashPass String
+  Upload    Upload[]
+}
+
+
+model Upload {
   id        String   @id @default(cuid())
-  email     String   @unique
-  name      String?
-  hashPass  String?
+  title     String
+  content   String
+  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String
 }
