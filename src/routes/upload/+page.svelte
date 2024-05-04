@@ -65,7 +65,6 @@
     <button class="btn">Upload billede</button>
     <p> <a href="/dashboard" class="button-link">Gå til hovedmenu</a></p>
     <p> <a href="/history" class="button-link">Hent Din EpiHistorik</a>
-    <p><a href="/logout" class="button-link button-logout">Log ud</a></p>
   </div>
 </div>
 
