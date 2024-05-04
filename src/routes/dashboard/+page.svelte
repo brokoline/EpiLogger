@@ -11,20 +11,6 @@
 
   let userData = {};
 
-  onMount(async () => {
-    const response = await fetch('/api/user', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    if (response.status === 200) {
-      userData = await response.json();
-    } else {
-      alert('Failed to fetch user data');
-    }
-  });
-
   const handleFileUpload = (event) => {
     // Upload logic here
   };
@@ -45,9 +31,9 @@
 <div class="dashboard-container">
   <h3>Velkommen</h3>
   <div>
-    <p> <a href="/upload" class="button-link">Upload et billede til din EpiLog</a><p></p>
-    <p> <a href="/history" class="button-link">Hent Din EpiHistorik</a><p></p>
-    <p><a href="/logout" class="button-link button-logout">Log ud</a><p>
+    <p> <a href="/upload" class="button-link">Upload et billede til din EpiLog</a></p>
+    <p> <a href="/history" class="button-link">Hent Din EpiHistorik</a>
+    <p><a href="/logout" class="button-link button-logout">Log ud</a></p>
   </div>
 </div>
 
