@@ -43,7 +43,7 @@
 <center>
 <div id="epiExplorerHeader">EpiLogger</div>
 <div class="dashboard-container">
-  <h3>Velkommen, {userData.name || 'bruger'}</h3>
+  <h3>Velkommen</h3>
   <div>
     <p> <a href="/upload" class="button-link">Upload et billede til din EpiLog</a><p></p>
     <p> <a href="/history" class="button-link">Hent Din EpiHistorik</a><p></p>
@@ -105,3 +105,4 @@ p a:hover {
 }
 
 </style>
+

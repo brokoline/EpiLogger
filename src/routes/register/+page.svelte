@@ -51,11 +51,11 @@
     </div>
     <div class="form-group">
         <label for="pass">Adgangskode:</label>
-        <input type="pass" id="pass" bind:value={pass} />
+        <input type="password" id="pass" bind:value={pass} />
     </div>
     <div class="form-group">
         <label for="confirmPass">Bekræft adgangskode:</label>
-        <input type="pass" id="confirmPass" bind:value={confirmPass} />
+        <input type="password" id="confirmPass" bind:value={confirmPass} />
     </div>
     <button on:click={addUser}>Opret bruger</button>
     <p><a href="/">Tilbage til login</a></p>
@@ -98,7 +98,7 @@
         margin-bottom: 1rem;
     }
 
-    input[type="email"], input[type="pass"], input[type="text"] {
+    input[type="email"], input[type="password"], input[type="text"] {
         width: 100%;
         padding: 0.5rem;
         margin-top: 0.2rem;
