@@ -8,8 +8,6 @@
 
 
 <script>
-  import { onMount } from 'svelte';
-
   let description = '';
   let imageFile;
 
