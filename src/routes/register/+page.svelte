@@ -13,34 +13,41 @@
     let confirmPass = '';
 
     const addUser = async () => {
-        if (pass !== confirmPass) {
-            alert('Kodeordene matcher ikke. Prøv igen.');
-            return;
-        }
+    // Validering for at sikre, at brugernavnet ikke er tomt
+    if (!user.trim()) {
+        alert('Indtast venligst et brugernavn.');
+        return;
+    }
 
-        try {
-            const response = await fetch('api/user', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: user,
-                    email: email,
-                    pass: pass
-                })
-            });
+    // Validering for at sikre, at kodeordene matcher
+    if (pass !== confirmPass) {
+        alert('Kodeordene matcher ikke. Prøv igen.');
+        return;
+    }
 
-            if (response.ok) {
-                window.location.href = '/';
-            } else {
-                alert('Der opstod en fejl ved oprettelse af brugeren.');
-            }
-        } catch (error) {
-            console.error('Fejl ved oprettelse af bruger:', error);
+    try {
+        const response = await fetch('api/user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: user,
+                email: email,
+                pass: pass
+            })
+        });
+
+        if (response.ok) {
+            window.location.href = '/';
+        } else {
             alert('Der opstod en fejl ved oprettelse af brugeren.');
         }
-    };
+    } catch (error) {
+        console.error('Fejl ved oprettelse af bruger:', error);
+        alert('Der opstod en fejl ved oprettelse af brugeren.');
+    }
+};
 </script>
 
 <div id="epiExplorerHeader">EpiLogger</div>
