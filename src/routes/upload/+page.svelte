@@ -21,7 +21,7 @@
       formData.append('image', imageFile);
       formData.append('description', description);
 
-      const response = await fetch('/api/upload', {
+      const response = await fetch('/api/file', {
         method: 'POST',
         body: formData
       });
@@ -46,7 +46,7 @@
   <div>
     <p>Upload billeder til din EpiLog, som kan ses i EpiHistorik</p>
     <input type="file" id="file-upload" on:change={handleFileChange} />
-    <textarea bind:value={description} placeholder="Tilføj en beskrivelse til dit billede" rows="4"></textarea>
+    <textarea bind:value={description} placeholder="Beskriv symptomer eller området du er bekymret for, inkluder detaljer som varighed, eventuelle ændringer i tilstanden, og andre relevante oplysninger." rows="4"></textarea>
     <button on:click={uploadImage}>Upload billede</button>
     <p> <a href="/dashboard" class="button-link">Gå til hovedmenu</a></p>
     <p> <a href="/history" class="button-link">Hent Din EpiHistorik</a>
